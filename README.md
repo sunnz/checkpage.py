@@ -3,6 +3,12 @@ checkpage.py
 
 check online status of a web page.
 
+## example usage
+
+```
+./checkpage.py -c sites.json http://noodlecastle.com.au
+```
+
 ## license
 
 checkpage.py is available under the ISC license:
