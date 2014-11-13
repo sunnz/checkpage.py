@@ -1,14 +1,24 @@
 #!/usr/bin/env python3
 
-import sys, argparse, urllib.request, urllib.error, json
+import sys
+import argparse
+import urllib.request
+import urllib.error
+import json
+
 
 def main():
-    parser = argparse.ArgumentParser(description='Check online status of a web page.')
-    parser.add_argument('url', help='URL of the web page starting with https:// or http://')
-    parser.add_argument('-c', '--checklist', help='JSON file of sites and contents to check against.')
+    parser = argparse.ArgumentParser(
+        description='Check online status of a web page.')
+    parser.add_argument(
+        'url',
+        help='URL of the web page starting with https:// or http://')
+    parser.add_argument(
+        '-c', '--checklist',
+        help='JSON file of sites and contents to check against.')
     args = parser.parse_args()
     subdomain_list = split_to_subdomain_list(args.url)
-    sites = {str.join('.', subdomain_list):[]}
+    sites = {str.join('.', subdomain_list): []}
     if args.checklist:
         with open(args.checklist, 'r') as f:
             sites = json.load(f)
@@ -18,6 +28,7 @@ def main():
             checkpage(url=args.url, checklist=sites[subdomain])
             break
 
+
 def split_to_subdomain_list(url):
     if '://' in url:
         split_proto = url.split('://')
@@ -26,6 +37,7 @@ def split_to_subdomain_list(url):
     else:
         split_domain = url.split('/')
         return split_domain[0].split('.')
+
 
 def checkpage(url, checklist):
     try:
@@ -55,7 +67,8 @@ def checkpage(url, checklist):
     elif check_count < len(checklist):
         print(url + ' missing content!')
     else:
-        raise Exception('We cannot possibly have checked more items than there is in the list!')
+        raise Exception('We cannot possibly have checked more items than there'
+                        ' is in the list!')
 
 if __name__ == '__main__':
     main()
