@@ -1,12 +1,12 @@
 checkpage.py
 ============
 
-check online status of a web page.
+check online status of a web page with various metrics.
 
 ## example usage
 
 ```
-./checkpage.py -c sites.json http://noodlecastle.com.au
+./checkpage.py checklist.json
 ```
 
 ## license

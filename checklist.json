@@ -1,0 +1,20 @@
+{
+    "noodlecastle": {
+        "urls": [
+            "http://noodlecastle.com.au/",
+            "http://au.noodlecastle.com/"
+        ],
+        "strings": [
+            "UA-37441887-1",
+            "<title>"
+        ]
+    },
+    "rc4_email": {
+        "urls": [
+            "https://rc4_email.sunnz.net/"
+        ],
+        "strings": [
+            "<h2 class=\"pane-title block-title\">Welcome RC4 email demo</h2>"
+        ]
+    }
+}
