@@ -24,7 +24,7 @@ def main():
     if args.checklist:
         with open(args.checklist, 'r') as f:
             checklist = json.load(f)
-        for sitename, setting in checklist.items():
+        for sitename, setting in checklist['sites'].items():
             total = passed = 0
             print('=========')
             print(sitename)
